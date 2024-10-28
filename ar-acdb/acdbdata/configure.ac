@@ -35,9 +35,6 @@ AC_MSG_RESULT([$machine_selected])
 AC_SUBST([MACHINE_ENABLED],[$machine_selected])
 
 # Checks for libraries
-PKG_CHECK_MODULES([MMHEADERS], [kvh2xml])
-AC_SUBST([MMHEADERS_CFLAGS])
-
 AC_ARG_WITH([openwrt],
     AS_HELP_STRING([use openwrt (default is no)]),
     [with_openwrt=$withval],

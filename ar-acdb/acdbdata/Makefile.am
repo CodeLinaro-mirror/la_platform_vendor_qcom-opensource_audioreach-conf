@@ -4,12 +4,11 @@ EXTRA_DIST = $(pkgconfig_DATA)
 
 AM_CFLAGS = -Wall -Werror
 if BUILDSYSTEM_OPENWRT
-AM_CFLAGS += -I ./inc
-
-acdbdata_sources = ./inc/kvh2xml.h
+AM_CFLAGS += -I $(TOPDIR)/src/audio/audioreach-conf/acdbdata
+acdbdata_sources = $(TOPDIR)/src/audio/audioreach-conf/acdbdata/kvh2xml.h
 else
-AM_CFLAGS += @MMHEADERS_CFLAGS@
-
+AM_CFLAGS += -I $(WORKSPACE)/src/audio/audioreach-conf/acdbdata
+acdbdata_sources = $(WORKSPACE)/src/audio/audioreach-conf/acdbdata/kvh2xml.h
 endif
 
 lib_includedir = $(includedir)/acdbdata

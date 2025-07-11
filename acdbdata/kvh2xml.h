@@ -79,6 +79,7 @@ enum AllKeyIds{
     USB_VENDOR_ID               = 0xE6000000,   /**< @h2xmle_name{USB_Vendor_Id} */
     TAG_KEY_ULTRASOUND_GAIN     = 0xE7000000,   /**< @h2xmle_name{UltrasoundGain} */
     PROXY_RX_TYPE               = 0xE7010000,   /**< @h2xmle_name{ProxyRxType} */
+    MMA_MODEL_TYPE              = 0xE7030000,   /**< @h2xmle_name{MMA_MODEL_TYPE} */
 };
 
 
@@ -111,6 +112,8 @@ enum Key_Values_StreamRX {
     INCALL_MUSIC_PLUS               = 0xA100001A,   /**< @h2xmle_name {Incall_Music_Plus}*/
     INCALL_MUSIC_COMPRESS_UPLINK    = 0xA100001B,   /**< @h2xmle_name {Incall_Music_Compress_Uplink}*/
     INCALL_MUSIC_COMPRESS_DOWNLINK  = 0xA100001C,   /**< @h2xmle_name {Incall_Music_Compress_Downlink}*/
+    PCM_IMMUTABLE                   = 0xA1000008,   /**< @h2xmle_name {PCM_Immutable_Playback}*/
+    CALL_TRANSLATION_RX             = 0xA1000009,   /**< @h2xmle_name {Call_Translation_Rx} @h2xmle_description {For Call Translation Rx use case with Voice and VoIP.}*/
 };
 
 /**
@@ -134,6 +137,8 @@ enum Key_Values_DeviceRX {
     SPEAKER_TDM             = 0xA200000D,   /**< @h2xmle_name {Speaker_TDM} @h2xmle_description {Subgraph for TDM backend for speaker}*/
     SPEAKER_I2S             = 0xA200000E,   /**< @h2xmle_name {Speaker_I2S} @h2xmle_description {Subgraph for I2S backend for speaker}*/
     SOUNDDOSECOMPUTATION    = 0xA2000012,   /**< @h2xmle_name {SoundDoseComputation} @h2xmle_description {Sub-graph to calculate Sound Dose Mel values for each of the RX device for Sound Dose calculation.}*/
+    HFP_RX                  = 0xA2000014,   /**< @h2xmle_name {HFP_RX} @h2xmle_description {two pairs of SCO links are needed, so need to add HFP RX device}*/
+    USB_RX_IMMUTABLE        = 0xA2000015,   /**< @h2xmle_name {USB_RX_IMMUTABLE} @h2xmle_description {Subgraph for USB RX immutable playback}*/
 };
 
 /**
@@ -160,6 +165,7 @@ enum Key_Values_DeviceTX {
     DUMMY_TX        = 0xA3000010,   /**< @h2xmle_name {Dummy_Tx}*/
     SPEAKERMIC_TDM  = 0xA3000011,   /**< @h2xmle_name {Speakermic_TDM} @h2xmle_description {Speaker mic device for TDM Backend.}*/
     SPEAKERMIC_I2S  = 0xA3000012,   /**< @h2xmle_name {Speakermic_I2S} @h2xmle_description {Speaker mic device for I2S Backend.}*/
+    HFP_TX          = 0xA3000015,   /**< @h2xmle_name {HFP_TX} @h2xmle_description {two pairs of SCO links are needed, so need to add HFP TX}*/
 };
 
 /**
@@ -254,6 +260,7 @@ enum Key_Values_Channels {
     CHANNELS_14     = 14,   /**< @h2xmle_name {CHS_14}*/
     CHANNELS_15     = 15,   /**< @h2xmle_name {CHS_15}*/
     CHANNELS_16     = 16,   /**< @h2xmle_name {CHS_16}*/
+    CHANNELS_32     = 32,   /**< @h2xmle_name {CHS_32}*/
 };
 
 /**
@@ -358,6 +365,7 @@ enum Key_Values_DevicePP_Tx {
     DEVICEPP_TX_VOICE_FLUENCE_PRO_EXT_EC        = 0xAD00002F,   /**< @h2xmle_name {Voice_Fluence_Pro_EXT_EC} @h2xmle_description {Multi MIC EXT_EC scenarios ; at least 3 or more Micss in a voice call}*/
     DEVICEPP_TX_EC_REF                          = 0xAD000030,   /**< @h2xmle_name {Record_Echo_Ref_Mux} @h2xmle_description {Mux Capture data and Ec Ref}*/
     DEVICEPP_TX_AUDIO_FLUENCE_FFECNS            = 0xAD000032,   /**< @h2xmle_name {Audio_Fluence_FFECNS} @h2xmle_description {Fluence FFECNS record use case.}*/
+    DEVICEPP_TX_FLUENCE_SMECNS_OFFLOAD          = 0xAD000036,   /**< @h2xmle_name {Fluence_SEMCNS_Offload} @h2xmle_description {Single mic ECNS offload}*/
 };
 
 /**
@@ -550,6 +558,7 @@ enum Key_Values_Stream_Config {
     STREAM_CFG_VUI_MMA      = 0xBC000008,   /**< @h2xmle_name {MMA} @h2xmle_description {stream config key value for VoiceUI MMA (multi modal detection) usecase}*/
     STREAM_CFG_ASR_QC       = 0xBC000009,   /**< @h2xmle_name {ASR_QC}*/
     STREAM_CFG_ASR_CUSTOM   = 0xBC00000A,   /**< @h2xmle_name {ASR_Custom}*/
+    STREAM_CFG_SDZ_QC       = 0xBC00000B,   /**< @h2xmle_name {SDZ_QC}*/
 };
 
 /**
@@ -561,6 +570,8 @@ enum Key_Values_Stream_MuxDemux {
     TAG_VALUE_MUX_DEMUX_CONFIG_DOWNLINK                 = 2,    /**< @h2xmle_name {DL_Mono}*/
     TAG_VALUE_MUX_DEMUX_CONFIG_UPLINK_DOWNLINK_MONO     = 3,    /**< @h2xmle_name {UL_DL_Mono}*/
     TAG_VALUE_MUX_DEMUX_CONFIG_UPLINK_DOWNLINK_STEREO   = 4,    /**< @h2xmle_name {UL_DL_Stereo}*/
+    TAG_VALUE_MUX_DEMUX_CONFIG_VOICE                    = 5,    /**< @h2xmle_name {Mux_Demux_Voice_Connection}*/
+    TAG_VALUE_MUX_DEMUX_CONFIG_VOIP                     = 6,    /**< @h2xmle_name {Mux_Demux_VoIP_Connection}*/
 };
 
 /**
@@ -834,6 +845,16 @@ enum Key_Values_ProxyRxType {
 };
 
 /**
+    @h2xmlk_key         {MMA_MODEL_TYPE}
+    @h2xmlk_description {Key for audio model type of MMA}
+    @range              {0xE7030001..0xE703FFFF}
+*/
+enum Key_Values_MMA_MODEL_TYPE {
+    MMA_NVD = 0xE7030001,   /**< @h2xmle_name {MMA_NVD} @h2xmle_description {Value to indicate NVD model being used in MMA usecase}*/
+    MMA_VAD = 0xE7030002,   /**< @h2xmle_name {MMA_VAD} @h2xmle_description {Value to indicate VAD model being used in MMA usecase}*/
+};
+
+/**
     @h2xmlk_gkeys
     @h2xmlk_description {Graph Keys}
 */
@@ -874,6 +895,7 @@ enum Cal_Keys {
     ck_HAPTICS_VI_Map              = HAPTICS_PRO_VI_MAP,
     ck_HAPTICS_Dev_Map             = HAPTICS_PRO_DEV_MAP,
     ck_USB_Vendor_Id               = USB_VENDOR_ID,
+    ck_MMA_MODEL_TYPE              = MMA_MODEL_TYPE,
 };
 
 
@@ -964,7 +986,12 @@ enum Tag_Definitions {
     TAG_AMS_SW_RD_EP_4              = 0xC0000050, /**< @h2xmle_name {"ams_sw_rd_ep_4"} @h2xmle_description {tagged module can be used as shared memory endpoint in AMS} */
     TAG_TONE_RENDERER_MODULE        = 0xC0000051, /**< @h2xmle_name {"tone_renderer_module"} @h2xmle_description {this tag is used to identify the new module - ToneRenderer so miid can be queried from HLOS} */
     TAG_MODULE_ASR                  = 0xC0000057, /**< @h2xmle_name {"module_asr"} @h2xmle_description {Tag to be used to identify the MIID of ASR module} */
+    TAG_MODULE_WNR                  = 0xC0000063, /**< @h2xmle_name {"module_wnr"} @h2xmle_description {Tag to be used to identify the MIID of WNR module} */
+    TRANSLATION_ASR                 = 0xC0000060, /**< @h2xmle_name {"translation_asr"} @h2xmle_description {Use this tag for setting config to the ASR module in the Call Translation Graph.}  */
+    TRANSLATION_NMT                 = 0xC0000061, /**< @h2xmle_name {"translation_nmt"} @h2xmle_description {Use this tag for setting config to the NMT module in the Call Translation Graph.}  */
+    TRANSLATION_TTS                 = 0xC0000062, /**< @h2xmle_name {"translation_tts"} @h2xmle_description {Use this tag for setting config to the TTS module in the Call Translation Graph.}  */
     MODULE_SOUND_DOSE               = 0xC000005C, /**< @h2xmle_name {"module_sound_dose"} @h2xmle_description {Module computes momentary exposure values and report for the SoundDose Feature.}  */
+    TAG_MODULE_SDZ                  = 0xC0000064, /**< @h2xmle_name {"module_sdz"} @h2xmle_description {Tag to be used to identify the MIID of speaker diarization module} */
 };
 typedef enum Tag_Definitions Tag_Definitions;
 
@@ -1025,6 +1052,7 @@ enum Tag_Keys_TAG_STREAM_MFC {
 
 
 /**
+    @h2xmle_isVoice {true}
     @h2xmlk_modTagEnum {"stream_volume", TAG_STREAM_VOLUME}
     @h2xmlk_description {Stream Volume}
 */

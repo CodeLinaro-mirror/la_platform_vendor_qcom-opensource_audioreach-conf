@@ -4,9 +4,8 @@ EXTRA_DIST = $(pkgconfig_DATA)
 
 AM_CFLAGS = -Wall -Werror
 if BUILDSYSTEM_OPENWRT
-AM_CFLAGS += -I ./inc
-
-acdbdata_sources = ./inc/kvh2xml.h
+AM_CFLAGS += -I $(top_srcdir)/acdbdata
+acdbdata_sources = $(top_srcdir)/acdbdata/kvh2xml.h
 else
 AM_CFLAGS += @MMHEADERS_CFLAGS@
 

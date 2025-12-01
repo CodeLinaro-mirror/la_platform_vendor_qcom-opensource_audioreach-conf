@@ -33,21 +33,17 @@ AC_ARG_WITH([qcom],
         [with_qcom=no])
 AM_CONDITIONAL([VENDOR_QCOM], [test "x${with_qcom}" = "xyes"])
 
-AC_CONFIG_FILES([Makefile])
-
-AM_COND_IF([VENDOR_QCOM],
-        [AC_CONFIG_FILES([qcom/Makefile qcom/kvh2xml.pc \
-                          qcom/qli/qcm6490/Makefile qcom/qli/qcm6490/config.pc \
-                          qcom/qli/qcs8300/Makefile qcom/qli/qcs8300/config.pc \
-                          qcom/qli/qcs9100/Makefile qcom/qli/qcs9100/config.pc \
-                          qcom/qli/qcs9075/Makefile qcom/qli/qcs9075/config.pc \
-			  ])])
 
 AC_CONFIG_FILES([ \
+        Makefile \
         linux/Makefile \
         linux/kvh2xml.pc \
         linux/reference/Makefile \
-        linux/reference/config.pc
+        linux/reference/config.pc \
         ])
+
+
+# Declare recursive configure into subpackages
+AM_COND_IF([VENDOR_QCOM], [AC_CONFIG_SUBDIRS([qcom])])
 
 AC_OUTPUT

@@ -8,7 +8,7 @@
  *
  */
 
-  #ifndef __KVH_2_XML_H__
+ #ifndef __KVH_2_XML_H__
  #define __KVH_2_XML_H__
 
 /**
@@ -559,6 +559,7 @@ enum Key_Values_Stream_Config {
     STREAM_CFG_ASR_QC       = 0xBC000009,   /**< @h2xmle_name {ASR_QC}*/
     STREAM_CFG_ASR_CUSTOM   = 0xBC00000A,   /**< @h2xmle_name {ASR_Custom}*/
     STREAM_CFG_SDZ_QC       = 0xBC00000B,   /**< @h2xmle_name {SDZ_QC}*/
+    STREAM_CFG_HIST_CAP     = 0xBC00000C,   /**< @h2xmle_name {HIST_CAP}*/
 };
 
 /**
@@ -986,11 +987,11 @@ enum Tag_Definitions {
     TAG_AMS_SW_RD_EP_4              = 0xC0000050, /**< @h2xmle_name {"ams_sw_rd_ep_4"} @h2xmle_description {tagged module can be used as shared memory endpoint in AMS} */
     TAG_TONE_RENDERER_MODULE        = 0xC0000051, /**< @h2xmle_name {"tone_renderer_module"} @h2xmle_description {this tag is used to identify the new module - ToneRenderer so miid can be queried from HLOS} */
     TAG_MODULE_ASR                  = 0xC0000057, /**< @h2xmle_name {"module_asr"} @h2xmle_description {Tag to be used to identify the MIID of ASR module} */
-    TAG_MODULE_WNR                  = 0xC0000063, /**< @h2xmle_name {"module_wnr"} @h2xmle_description {Tag to be used to identify the MIID of WNR module} */
+    MODULE_SOUND_DOSE               = 0xC000005C, /**< @h2xmle_name {"module_sound_dose"} @h2xmle_description {Module computes momentary exposure values and report for the SoundDose Feature.}  */
     TRANSLATION_ASR                 = 0xC0000060, /**< @h2xmle_name {"translation_asr"} @h2xmle_description {Use this tag for setting config to the ASR module in the Call Translation Graph.}  */
     TRANSLATION_NMT                 = 0xC0000061, /**< @h2xmle_name {"translation_nmt"} @h2xmle_description {Use this tag for setting config to the NMT module in the Call Translation Graph.}  */
     TRANSLATION_TTS                 = 0xC0000062, /**< @h2xmle_name {"translation_tts"} @h2xmle_description {Use this tag for setting config to the TTS module in the Call Translation Graph.}  */
-    MODULE_SOUND_DOSE               = 0xC000005C, /**< @h2xmle_name {"module_sound_dose"} @h2xmle_description {Module computes momentary exposure values and report for the SoundDose Feature.}  */
+    TAG_MODULE_WNR                  = 0xC0000063, /**< @h2xmle_name {"module_wnr"} @h2xmle_description {Tag to be used to identify the MIID of WNR module} */
     TAG_MODULE_SDZ                  = 0xC0000064, /**< @h2xmle_name {"module_sdz"} @h2xmle_description {Tag to be used to identify the MIID of speaker diarization module} */
     MODULE_SA_HDT                   = 0xC0000066, /**< @h2xmle_name {"module_sa_hdt"} @h2xmle_description {Tag to be used to identify the MIID of spatializer headtracking module} */
 };

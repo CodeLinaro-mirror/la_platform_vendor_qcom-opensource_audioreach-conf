@@ -26,7 +26,17 @@ AC_PROG_MAKE_SET
 AM_PROG_AR
 PKG_PROG_PKG_CONFIG
 
+AC_ARG_WITH([openwrt],
+    AS_HELP_STRING([use openwrt (default is no)]),
+    [with_openwrt=$withval],
+    [with_openwrt=no])
+AM_CONDITIONAL([BUILDSYSTEM_OPENWRT], [test "x${with_openwrt}" = "xyes"])
+
 AC_CONFIG_FILES([Makefile kvh2xml.pc])
+if (test "x${with_openwrt}" = "xno"); then
 AC_CONFIG_SUBDIRS([qli])
+else
+AC_CONFIG_SUBDIRS([mbb])
+fi
 
 AC_OUTPUT
